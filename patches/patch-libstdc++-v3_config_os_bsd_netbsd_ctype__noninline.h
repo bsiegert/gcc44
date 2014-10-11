@@ -1,6 +1,6 @@
 $NetBSD: patch-libstdc++-v3_config_os_bsd_netbsd_ctype__noninline.h,v 1.1 2013/04/29 21:34:49 joerg Exp $
 
---- libstdc++-v3/config/os/bsd/netbsd/ctype_noninline.h.orig	2013-04-28 21:00:32.000000000 +0000
+--- libstdc++-v3/config/os/bsd/netbsd/ctype_noninline.h.orig	2009-04-09 23:23:07.000000000 +0000
 +++ libstdc++-v3/config/os/bsd/netbsd/ctype_noninline.h
 @@ -33,11 +33,17 @@
    

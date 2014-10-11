@@ -1,8 +1,47 @@
-$NetBSD: patch-ad,v 1.4 2012/05/03 12:20:19 hans Exp $
+$NetBSD$
 
---- configure.orig	2010-10-02 11:40:32.000000000 +0000
+--- configure.orig	2011-06-27 21:15:57.000000000 +0000
 +++ configure
-@@ -4534,7 +4534,7 @@ if test "${with_mpfr_lib+set}" = set; th
+@@ -2064,7 +2064,7 @@ if test "${ENABLE_GOLD}" = "yes"; then
+   case "${target}" in
+     *-*-elf* | *-*-sysv4* | *-*-unixware* | *-*-eabi* | hppa*64*-*-hpux* \
+     | *-*-linux* | frv-*-uclinux* | *-*-irix5* | *-*-irix6* \
+-    | *-*-netbsd* | *-*-openbsd* | *-*-freebsd* | *-*-solaris2*)
++    | *-*-mirbsd* | *-*-netbsd* | *-*-openbsd* | *-*-freebsd* | *-*-solaris2*)
+       case "${target}" in
+         *-*-linux*aout* | *-*-linux*oldld*)
+           ;;
+@@ -2122,6 +2122,9 @@ case "${host}" in
+   *-*-cygwin*)
+     noconfigdirs="$noconfigdirs autoconf automake send-pr rcs guile perl"
+     ;;
++  *-*-mirbsd*)
++    noconfigdirs="$noconfigdirs intl zlib"
++    ;;
+   *-*-netbsd*)
+     noconfigdirs="$noconfigdirs rcs"
+     ;;
+@@ -2250,6 +2253,9 @@ case "${target}" in
+     skipdirs="$skipdirs zlib fastjar target-libjava target-boehm-gc target-zlib"
+     noconfigdirs="$noconfigdirs target-libgloss"
+     ;;
++  *-*-mirbsd*)
++    noconfigdirs="$noconfigdirs target-newlib target-libgloss ${libgcj}"
++    ;;
+   *-*-netbsd*)
+     # Skip some stuff on all NetBSD configurations.
+     noconfigdirs="$noconfigdirs target-newlib target-libiberty target-libgloss"
+@@ -2900,6 +2906,9 @@ fi
+   *-*-sysv4*)
+     host_makefile_frag="config/mh-sysv4"
+     ;;
++  i?86-*-mirbsd*)
++    # Do not use -O2 -g -fomit-frame-pointer, may be broken.
++    ;;
+   # This is placed last to prevent interfering with the cases above.
+   i[3456789]86-*-*)
+     # Build the stage2 and stage3 compilers with -fomit-frame-pointer.
+@@ -4534,7 +4543,7 @@ if test "${with_mpfr_lib+set}" = set; th
  fi;
  
  if test "x$with_mpfr" != x; then
@@ -11,7 +50,7 @@ $NetBSD: patch-ad,v 1.4 2012/05/03 12:20:19 hans Exp $
    gmpinc="-I$with_mpfr/include"
  fi
  if test "x$with_mpfr_include" != x; then
-@@ -4544,8 +4544,10 @@ if test "x$with_mpfr_lib" != x; then
+@@ -4544,8 +4553,10 @@ if test "x$with_mpfr_lib" != x; then
    gmplibs="-L$with_mpfr_lib $gmplibs"
  fi
  if test "x$with_mpfr$with_mpfr_include$with_mpfr_lib" = x && test -d ${srcdir}/mpfr; then
@@ -24,7 +63,7 @@ $NetBSD: patch-ad,v 1.4 2012/05/03 12:20:19 hans Exp $
    # Do not test the mpfr version.  Assume that it is sufficient, since
    # it is in the source tree, and the library has not been built yet
    # but it would be included on the link line in the version check below
-@@ -4598,7 +4600,7 @@ fi
+@@ -4598,7 +4609,7 @@ fi
  if test "x$with_gmp$with_gmp_include$with_gmp_lib" = x && test -d ${srcdir}/gmp; then
    gmplibs='-L$$r/$(HOST_SUBDIR)/gmp/.libs -L$$r/$(HOST_SUBDIR)/gmp/_libs '"$gmplibs"
    gmpinc='-I$$r/$(HOST_SUBDIR)/gmp -I$$s/gmp '"$gmpinc"

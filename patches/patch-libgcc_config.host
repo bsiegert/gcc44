@@ -1,0 +1,22 @@
+$NetBSD$
+
+--- libgcc/config.host.orig	2014-07-29 19:12:15.000000000 +0000
++++ libgcc/config.host
+@@ -152,6 +152,8 @@ case ${host} in
+ *-*-linux* | frv-*-*linux* | *-*-kfreebsd*-gnu | *-*-knetbsd*-gnu | *-*-gnu*)
+   extra_parts="crtbegin.o crtbeginS.o crtbeginT.o crtend.o crtendS.o"
+   ;;
++*-*-mirbsd*)
++  ;;
+ *-*-netbsd*)
+   ;;
+ *-*-openbsd*)
+@@ -280,6 +282,8 @@ i[34567]86-*-aout*)
+ i[34567]86-*-freebsd*)
+ 	;;
+ x86_64-*-freebsd*)
++	;;
++i?86-*-mirbsd*)
+ 	;;
+ i[34567]86-*-netbsdelf*)
+ 	;;

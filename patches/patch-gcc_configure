@@ -1,0 +1,13 @@
+$NetBSD$
+
+--- gcc/configure.orig	2014-07-29 18:57:40.000000000 +0000
++++ gcc/configure
+@@ -24455,7 +24455,7 @@ else
+ 	 # simply assert that glibc does provide this, which is true for all
+ 	 # realistically usable GNU/Hurd configurations.
+ 	 gcc_cv_libc_provides_ssp=yes;;
+-       *-*-darwin* | *-*-freebsd*)
++       *-*-darwin* | *-*-freebsd* | *-*-mirbsd*)
+ 	 echo "$as_me:$LINENO: checking for __stack_chk_fail" >&5
+ echo $ECHO_N "checking for __stack_chk_fail... $ECHO_C" >&6
+ if test "${ac_cv_func___stack_chk_fail+set}" = set; then

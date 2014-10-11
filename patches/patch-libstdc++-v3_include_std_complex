@@ -1,0 +1,12 @@
+$NetBSD$
+
+--- libstdc++-v3/include/std/complex.orig	2014-07-29 19:17:53.000000000 +0000
++++ libstdc++-v3/include/std/complex
+@@ -62,6 +62,7 @@ _GLIBCXX_BEGIN_NAMESPACE(std)
+   template<> class complex<double>;
+   template<> class complex<long double>;
+ 
++#undef abs
+   ///  Return magnitude of @a z.
+   template<typename _Tp> _Tp abs(const complex<_Tp>&);
+   ///  Return phase angle of @a z.

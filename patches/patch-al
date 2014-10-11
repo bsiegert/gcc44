@@ -1,8 +1,8 @@
 $NetBSD: patch-al,v 1.2 2011/05/14 18:00:24 wiz Exp $
 
---- libjava/configure.ac.orig	2011-02-25 16:08:27.000000000 +0100
+--- libjava/configure.ac.orig	2010-06-11 11:49:16.000000000 +0000
 +++ libjava/configure.ac
-@@ -1011,6 +1011,11 @@
+@@ -1019,6 +1019,11 @@ case "$THREADS" in
  	THREADLDFLAGS=-pthread
  	THREADSPEC=-lpthread
  	;;

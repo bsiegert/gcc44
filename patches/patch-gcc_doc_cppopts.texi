@@ -4,7 +4,7 @@ $NetBSD: patch-gcc_doc_cppopts.texi,v 1.1 2014/05/06 15:28:16 richard Exp $
 
 --- gcc/doc/cppopts.texi.orig	2008-06-15 09:42:13.000000000 +0000
 +++ gcc/doc/cppopts.texi
-@@ -758,7 +758,7 @@ Replacement:      [    ]    @{    @}
+@@ -758,7 +758,7 @@ Replacement:      [    ]    @{    @}    
  Enable special code to work around file systems which only permit very
  short file names, such as MS-DOS@.
  
